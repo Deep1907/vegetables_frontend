@@ -9,10 +9,11 @@ const Signup = () =>{
     const [password,setPassword] = useState("")
     
     useEffect(()=>{
-        getData()
+        handleSignup()
     },[])
 
-    const getData = async () =>{
+    const handleSignup = async (e) =>{
+        e.preventDefault()
         const response = await axios.post(backendURL + "/api/users/signup",{username,email,password})
         console.log(response)
     }
@@ -20,7 +21,7 @@ const Signup = () =>{
     return(
         <>
             <div>
-                <form>
+                <form onSubmit={(e)=>handleSignup}>
                     <input type="text" placeholder="Enter Username" value={username} onChange={(e)=>setUsername(e.target.value)} /> <br />
                     <input type="text" placeholder="Enter Email" value={email} onChange={(e)=>setEmail(e.target.value)} /> <br />
                     <input type="text" placeholder="Enter Password" value={password} onChange={(e)=>setPassword(e.target.value)} /> <br />
