@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import { BsCartPlusFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+
+
+    const username = localStorage.getItem(username)
+
 
     const cartData = useSelector((store)=>store.carts.items)
 
@@ -37,6 +41,8 @@ const Navbar = () => {
                     <div className='shop_cart' onClick={goToCart}>
                         <BsCartPlusFill className='icon_cart' />
                         <span>{cartData.length}</span>
+
+                        <div>{username}</div>
                     </div>
                 </div>
             </div>
