@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
 
 
-    const username = localStorage.getItem(username)
+    const username = localStorage.getItem("username")
 
 
     const cartData = useSelector((store)=>store.carts.items)
