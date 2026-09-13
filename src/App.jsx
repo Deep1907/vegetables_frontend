@@ -10,6 +10,7 @@ import Navbar from './components/Navbar.jsx';
 import cart_store from './store/cart_store.jsx'
 import CartPage from './pages/CartPage.jsx'
 import Signup from "./pages/Signup.jsx"
+import Login from "./pages/Login.jsx"
 
 export const backendURL = "https://vegetables-backend.onrender.com";
 
