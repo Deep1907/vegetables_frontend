@@ -17,8 +17,8 @@ const Login = () =>{
         console.log(response)
 
         if(response.data.success){
-            localstorage.setItem("token",response.data.token)
-            localStorage.setItem("username", response.data.username);
+            localStorage.setItem("token",response.data.token)
+            localStorage.setItem("username", response.data.username)
             navigate("/")
         }
 
