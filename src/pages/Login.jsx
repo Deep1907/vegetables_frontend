@@ -16,7 +16,11 @@ const Login = () =>{
         const response = await axios.post(backendURL + "/api/users/login",{email,password})
         console.log(response)
 
-        navigate("/")
+        if(response.data.success){
+            navigate("/")
+        }
+
+        
 
     }
 
