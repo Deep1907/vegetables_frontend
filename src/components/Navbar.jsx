@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
 
 
-    const [username, setUsername] = useState(localStorage.getItem("username"))
+    const [usernme, setUsernme] = useState(localStorage.getItem("username"))
 
     const cartData = useSelector((store) => store.carts.items)
 
@@ -20,8 +20,8 @@ const Navbar = () => {
 
     const submitLogout = () => {
         localStorage.removeItem("token")
-        localStorage.removeItem("username")
-        setUsername(null)
+        localStorage.removeItem("usernme")
+        setUsernme(null)
         navigate("/login")
     }
 
@@ -39,7 +39,7 @@ const Navbar = () => {
                             <li><Link to="/about">About Us</Link></li>
                             <li><Link to="/services">Services</Link></li>
                             <li><Link to="/contact">Contact</Link></li>
-                            {username ? (
+                            {usernme ? (
                                 <li><button onClick={submitLogout}>Logout</button></li>
                             ) : (
                                 <>
@@ -54,7 +54,7 @@ const Navbar = () => {
                         <BsCartPlusFill className='icon_cart' />
                         <span>{cartData.length}</span>
 
-                        <div>{username}</div>
+                        <div>{usernme}</div>
                     </div>
                 </div>
             </div>
