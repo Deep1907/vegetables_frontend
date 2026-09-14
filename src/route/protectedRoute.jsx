@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 
-const protectedRoute = ({children}) =>{
+const ProtectedRoute = ({children}) =>{
     const isLoggedIn = localStorage.getItem("isLoggedIn")
     if(!isLoggedIn){
         return <Navigate to="/login" replace />
@@ -8,4 +8,4 @@ const protectedRoute = ({children}) =>{
     return children
 }
 
-export default protectedRoute;
+export default ProtectedRoute;
