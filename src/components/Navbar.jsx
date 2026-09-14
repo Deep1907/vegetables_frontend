@@ -19,6 +19,10 @@ const Navbar = () => {
         navigate("/cart")
     }
 
+    const submitLogout = () =>{
+        localStorage.removeItem("username")
+    }
+
     return (
 
         <div className='navbar'>
@@ -37,6 +41,7 @@ const Navbar = () => {
                             <li><Link to="/login">Login</Link></li>  
                              
                         </ul>
+                        <button onClick={submitLogout}>Logout</button>
                     </div>
                     <div className='shop_cart' onClick={goToCart}>
                         <BsCartPlusFill className='icon_cart' />
