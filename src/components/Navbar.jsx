@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
 
 
-    localStorage.getItem("username")
+    const username = localStorage.getItem("username")
 
     const cartData = useSelector((store) => store.carts.items)
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                         <BsCartPlusFill className='icon_cart' />
                         <span>{cartData.length}</span>
 
-                        <div></div>
+                        <div>{username}</div>
                     </div>
                 </div>
             </div>
