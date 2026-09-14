@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { Link } from 'react-router-dom';
 import { BsCartPlusFill } from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
@@ -8,8 +8,7 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
 
 
-    const username = localStorage.getItem("username")
-
+    const [username,setUsername] = useState(localStorage.getItem("username"))
 
     const cartData = useSelector((store)=>store.carts.items)
 
@@ -20,7 +19,10 @@ const Navbar = () => {
     }
 
     const submitLogout = () =>{
-        localStorage.removeItem(token)
+        localStorage.removeItem("token")
+        localStorage.removeItem("username")
+        setUsername(null)
+        navigate("/login")
     }
 
     return (
@@ -32,16 +34,23 @@ const Navbar = () => {
                         <h2 className='logo'>LOGO.</h2>
                     </div>
                     <div className='navbar_list'>
+                        {
+                            username ? (
+                                <button onClick={submitLogout}>Logout</button>
+                            ) : (
+                                <ul>
+                                <li><Link to="/signup">Signup</Link></li>  
+                                <li><Link to="/login">Login</Link></li> 
+                                </ul>
+                            )
+                        }
                         <ul>
                             <li><Link to="/">Home</Link></li> 
                             <li><Link to="/about">About Us</Link></li>   
                             <li><Link to="/services">Services</Link></li>  
                             <li><Link to="/contact">Contact</Link></li>  
-                            <li><Link to="/signup">Signup</Link></li>  
-                            <li><Link to="/login">Login</Link></li>  
-                             
                         </ul>
-                        <button onClick={submitLogout}>Logout</button>
+                        
                     </div>
                     <div className='shop_cart' onClick={goToCart}>
                         <BsCartPlusFill className='icon_cart' />
