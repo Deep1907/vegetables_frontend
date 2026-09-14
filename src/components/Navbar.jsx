@@ -40,7 +40,7 @@ const Navbar = () => {
                     </div>
                     <div className='navbar_list'>
                        
-                            <Link to="/">Home</Link>
+                            <Link to="/home">Home</Link>
                             <Link to="/about">About Us</Link>
                             <Link to="/services">Services</Link>
                             <Link to="/contact">Contact</Link>

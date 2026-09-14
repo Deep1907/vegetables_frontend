@@ -24,10 +24,14 @@ function App() {
       <Navbar />
       <Routes>
 
+          <Route
+            path="/"
+            element={<Navigate to="/login" replace />}
+          />
            
           <Route path="/signup" element={<Signup />} /> 
           <Route path="/login" element={<Login />} /> 
-          <Route path="/"
+          <Route path="/home"
                  element={
                   <protectedRoute>
                       <Home />
