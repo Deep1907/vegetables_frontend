@@ -11,6 +11,7 @@ import cart_store from './store/cart_store.jsx'
 import CartPage from './pages/CartPage.jsx'
 import Signup from "./pages/Signup.jsx"
 import Login from "./pages/Login.jsx"
+import protectedRoute from './route/protectedRoute.jsx'
 
 export const backendURL = "https://vegetables-backend.onrender.com";
 
@@ -22,10 +23,18 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-      
-          <Route path="/" element={<Home />} /> 
+
+           
           <Route path="/signup" element={<Signup />} /> 
           <Route path="/login" element={<Login />} /> 
+          <Route path="/"
+                 element={
+                  <protectedRoute>
+                      <Home />
+                  </protectedRoute>
+                 }
+          />
+          
           
           
           <Route path="/about" element={<About />} /> 

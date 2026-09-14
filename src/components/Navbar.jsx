@@ -14,8 +14,16 @@ const Navbar = () => {
 
     const navigate = useNavigate()
 
+    const isLoggedIn = localStorage.getItem("isLoggedIn")
+
+
     const goToCart = () => {
         navigate("/cart")
+    }
+
+    const handleLogout = () =>{
+        localStorage.removeItem("isLoggedIn"); 
+        navigate("/login");
     }
 
    
@@ -29,16 +37,25 @@ const Navbar = () => {
                         <h2 className='logo'>LOGO.</h2>
                     </div>
                     <div className='navbar_list'>
-                        <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/about">About Us</Link></li>
-                            <li><Link to="/services">Services</Link></li>
-                            <li><Link to="/contact">Contact</Link></li>
+                       
+                            <Link to="/">Home</Link>
+                            <Link to="/about">About Us</Link>
+                            <Link to="/services">Services</Link>
+                            <Link to="/contact">Contact</Link>
                             
-                            <li><button>Logout</button></li>
-                            <li><Link to="/signup">Signup</Link></li>
-                            <li><Link to="/login">Login</Link></li>
-                        </ul>
+                            
+                            {
+                                !isLoggedIn ? (
+                                    <>
+                                    <Link to="/signup">Signup</Link>
+                                    <Link to="/login">Login</Link>
+                                    </>
+                                ) : (
+                                    <button onClick={handleLogout}>Logout</button>
+                                )
+                            }
+                            
+                        
 
                     </div>
                     <div className='shop_cart' onClick={goToCart}>
