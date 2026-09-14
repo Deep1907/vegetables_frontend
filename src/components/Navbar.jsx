@@ -20,7 +20,7 @@ const Navbar = () => {
     }
 
     const submitLogout = () =>{
-        localStorage.removeItem("username")
+        localStorage.removeItem(token)
     }
 
     return (
