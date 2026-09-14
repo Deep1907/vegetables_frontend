@@ -14,6 +14,7 @@ import Login from "./pages/Login.jsx"
 import protectedRoute from './route/protectedRoute.jsx'
 
 export const backendURL = "https://vegetables-backend.onrender.com";
+import { Navigate } from 'react-router-dom'
 
 function App() {
 
