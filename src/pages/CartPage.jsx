@@ -38,16 +38,18 @@ const CartPage = () => {
         }
         )
 
+        const {keyId,amount,currency,orderId,username,email} = order.data
+
         const options = {
-            key : order.keyId,
-            amount : order.amount,
-            currency : order.currency,
+            key : keyId,
+            amount : amount,
+            currency : currency,
             name : "ECOMM",
             description:"Test Transaction",
-            order_id : order.orderId,
+            order_id : orderId,
             prefill : {
-                name : order.username,
-                email : order.email
+                name : username,
+                email : email
             },
             theme : {
                 color : "#ff0000"
