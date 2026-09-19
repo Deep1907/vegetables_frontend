@@ -38,6 +38,24 @@ const CartPage = () => {
         }
         )
 
+        const options = {
+            key : order.keyId,
+            amount : order.amount,
+            currency : order.currency,
+            name : "ECOMM",
+            description:"Test Transaction",
+            order_id : order.orderId,
+            prefill : {
+                name : order.username,
+                email : order.email
+            },
+            theme : {
+                color : "#ff0000"
+            }
+        }
+
+        const rzp = new window.Razorpay(options)
+        rzp.open()
         
 
     }
