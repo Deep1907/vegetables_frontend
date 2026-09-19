@@ -37,7 +37,7 @@ const CartPage = () => {
         }
         }
         )
-
+        console.log("Order", order.data)
         const {keyId,amount,currency,orderId,username,email} = order.data
 
         const options = {
