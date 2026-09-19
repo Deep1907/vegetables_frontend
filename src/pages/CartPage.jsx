@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { incQty,decQty } from "../store/cart_slice.jsx"
+import axios from "axios"
+import {backendURL} from "../App.jsx"
 
 const CartPage = () => {
 
@@ -21,6 +23,11 @@ const CartPage = () => {
      const totalAmount = cartData.reduce((acc, val) => {
         return acc + (val.qty * val.price);
     }, 0);
+
+    const handleOrder = async () =>{
+        const order = await axios.post(backendURL + "/api/payment/create",{withCredentials:true})
+        
+    }
 
     return (
         <div>
@@ -48,7 +55,7 @@ const CartPage = () => {
 
 
                 <div className="ord_btn_wrap">
-                    <button className="order_btn">Place Order</button>
+                    <button className="order_btn" onClick={()=>handleOrder}>Place Order</button>
                 </div>    
          </div>
         </div>
