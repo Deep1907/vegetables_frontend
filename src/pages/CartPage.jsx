@@ -29,7 +29,7 @@ const CartPage = () => {
     const handleOrder = async (totAmt) =>{
         console.log(totAmt)
         const order = await axios.post(backendURL + "/api/payment/create",{
-            amount:totAmt    
+            totAmt    
         },
         {
         headers: {
@@ -38,7 +38,7 @@ const CartPage = () => {
         }
         )
 
-        console.log("Order",order)
+        
 
     }
 
