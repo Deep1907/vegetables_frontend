@@ -26,7 +26,7 @@ const CartPage = () => {
 
     const handleOrder = async () =>{
         const order = await axios.post(backendURL + "/api/payment/create",{
-            totalAmount    
+            amount:totalAmount    
         },{withCredentials:true})
 
     }
