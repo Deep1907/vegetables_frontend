@@ -38,6 +38,8 @@ const CartPage = () => {
         }
         )
 
+        console.log("Order",order)
+
     }
 
     return (
