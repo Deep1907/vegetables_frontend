@@ -28,7 +28,7 @@ const CartPage = () => {
         console.log(totAmt)
         const order = await axios.post(backendURL + "/api/payment/create",{
             amount:totAmt    
-        },{withCredentials:true})
+        })
 
     }
 
