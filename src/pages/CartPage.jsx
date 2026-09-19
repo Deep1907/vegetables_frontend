@@ -24,11 +24,19 @@ const CartPage = () => {
         return acc + (val.qty * val.price);
     }, 0);
 
+    const token = localStorage.getItem("token");
+
     const handleOrder = async (totAmt) =>{
         console.log(totAmt)
         const order = await axios.post(backendURL + "/api/payment/create",{
             amount:totAmt    
-        })
+        },
+        {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+        }
+        )
 
     }
 
