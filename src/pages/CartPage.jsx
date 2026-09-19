@@ -24,9 +24,9 @@ const CartPage = () => {
         return acc + (val.qty * val.price);
     }, 0);
 
-    const handleOrder = async () =>{
+    const handleOrder = async (totAmt) =>{
         const order = await axios.post(backendURL + "/api/payment/create",{
-            amount:totalAmount    
+            amount:totAmt    
         },{withCredentials:true})
 
     }
@@ -57,7 +57,7 @@ const CartPage = () => {
 
 
                 <div className="ord_btn_wrap">
-                    <button className="order_btn" onClick={()=>handleOrder}>Place Order</button>
+                    <button className="order_btn" onClick={()=>handleOrder(totalAmount)}>Place Order</button>
                 </div>    
          </div>
         </div>
