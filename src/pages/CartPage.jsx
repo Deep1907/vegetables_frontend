@@ -29,7 +29,7 @@ const CartPage = () => {
     const token = localStorage.getItem("token");
 
     const verifyPayment = async () => {
-        const response = await axios.get(backendURL + "/verify")
+        const response = await axios.get(backendURL + "/api/payment/verify")
         if (response) {
             setVerifyPay(true)
         }
