@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { incQty, decQty } from "../store/cart_slice.jsx"
+import { incQty, decQty, clearCart } from "../store/cart_slice.jsx"
 import axios from "axios"
 import { backendURL } from "../App.jsx"
 
@@ -21,6 +21,7 @@ const CartPage = () => {
     const decrementQty = (details) => {
         dispatch(decQty(details))
     }
+
 
     const totalAmount = cartData.reduce((acc, val) => {
         return acc + (val.qty * val.price);
@@ -45,6 +46,7 @@ const CartPage = () => {
 
     if(response.data.success){
         setVerifyPay(true)
+        dispatch(clearCart());
     }
         
     }
