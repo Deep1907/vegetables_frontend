@@ -28,11 +28,25 @@ const CartPage = () => {
 
     const token = localStorage.getItem("token");
 
-    const verifyPayment = async () => {
-        const response = await axios.get(backendURL + "/api/payment/verify")
-        if (response) {
-            setVerifyPay(true)
+    const verifyPayment = async (paymentResponse) => {
+        const response = await axios.get(backendURL + "/api/payment/verify",{
+            razorpay_payment_id : paymentResponse.razorpay_payment_id,
+            razorpay_order_id : paymentResponse.razorpay_order_id,
+            razorpay_signature : paymentResponse.razorpay_signature
+        },
+        {
+            headers : {
+                Authorization : `Bearer ${token}`
+            }
         }
+    )
+
+    console.log("Verify Response",response.data)
+
+    if(response.data.success){
+        setVerifyPay(true)
+    }
+        
     }
 
     const handleOrder = async (totAmt) => {
